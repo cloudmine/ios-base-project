@@ -2,7 +2,7 @@
 //  CMObjectEncoder.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -47,6 +47,9 @@
         CMObjectEncoder *objectEncoder = [[CMObjectEncoder alloc] init];
         [object encodeWithCoder:objectEncoder];
         NSMutableDictionary *encodedRepresentation = [NSMutableDictionary dictionaryWithDictionary:objectEncoder.encodedRepresentation];
+        if ([object isKindOfClass:[CMACL class]]) {
+            [encodedRepresentation[@"segments"] removeObjectForKey:@"__class__"];
+        }
         [encodedRepresentation setObject:[[object class] className] forKey:CMInternalClassStorageKey];
         [topLevelObjectsDictionary setObject:encodedRepresentation forKey:object.objectId];
     }
@@ -71,7 +74,7 @@
     return encodedRepresentation;
 }
 
-- (id)init;
+- (instancetype)init;
 {
     if (self = [super init]) {
         _encodedData = [NSMutableDictionary dictionary];
@@ -162,6 +165,7 @@
         CMObjectEncoder *newEncoder = [[CMObjectEncoder alloc] init];
         [objv encodeWithCoder:newEncoder];
         NSMutableDictionary *serializedRepresentation = [NSMutableDictionary dictionaryWithDictionary:newEncoder.encodedRepresentation];
+        
         [serializedRepresentation setObject:[[objv class] className] forKey:CMInternalClassStorageKey];
         return serializedRepresentation;
     } else if ([objv isKindOfClass:[CMObject class]]) {

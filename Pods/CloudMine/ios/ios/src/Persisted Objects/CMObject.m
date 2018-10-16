@@ -2,7 +2,7 @@
 //  CMObject.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -27,11 +27,11 @@
 
 #pragma mark - Initializers
 
-- (id)init {
+- (instancetype)init {
     return [self initWithObjectId:[NSString stringWithUUID]];
 }
 
-- (id)initWithObjectId:(NSString *)theObjectId {
+- (instancetype)initWithObjectId:(NSString *)theObjectId {
     if (self = [super init]) {
         objectId = theObjectId;
         store = nil;
@@ -41,7 +41,7 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     id deserializedObjectId = [aDecoder decodeObjectForKey:CMInternalObjectIdKey];
     if (![deserializedObjectId isKindOfClass:[NSString class]])
         deserializedObjectId = [deserializedObjectId stringValue];

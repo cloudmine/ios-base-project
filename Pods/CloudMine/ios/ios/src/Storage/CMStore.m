@@ -2,7 +2,7 @@
 //  CMStore.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -106,22 +106,22 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
     return [[CMStore alloc] initWithUser:theUser baseURL:url];
 }
 
-- (id)init;
+- (instancetype)init;
 {
     return [self initWithUser:nil];
 }
 
-- (id)initWithBaseURL:(NSString *)url;
+- (instancetype)initWithBaseURL:(NSString *)url;
 {
     return [self initWithUser:nil baseURL:url];
 }
 
-- (id)initWithUser:(CMUser *)theUser;
+- (instancetype)initWithUser:(CMUser *)theUser;
 {
     return [self initWithUser:theUser baseURL:nil];
 }
 
-- (id)initWithUser:(CMUser *)theUser baseURL:(NSString *)url;
+- (instancetype)initWithUser:(CMUser *)theUser baseURL:(NSString *)url;
 {
     if (self = [super init]) {
         self.webService = [[CMWebService alloc] initWithBaseURL:[NSURL URLWithString:url]];
@@ -185,7 +185,7 @@ NSString * const CMStoreObjectDeletedNotification = @"CMStoreObjectDeletedNotifi
 
 - (CMObjectOwnershipLevel)objectOwnershipLevel:(id)theObject;
 {
-    if ([theObject respondsToSelector:@selector(uuid)]) {
+    if ([theObject isKindOfClass:[CMFile class]]) {
         return [self _fileOwnershipLevel:theObject];
     } else if ([theObject isKindOfClass:[CMACL class]]) {
         return [self _aclOwnershipLevel:theObject];

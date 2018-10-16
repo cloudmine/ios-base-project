@@ -2,7 +2,7 @@
 //  CMUntypedObject.h
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -22,6 +22,6 @@
  */
 @property (strong, nonatomic) NSDictionary *fields;
 
-- (id)initWithFields:(NSDictionary *)theFields objectId:(NSString *)objId;
+- (instancetype)initWithFields:(NSDictionary *)theFields objectId:(NSString *)objId;
 
 @end

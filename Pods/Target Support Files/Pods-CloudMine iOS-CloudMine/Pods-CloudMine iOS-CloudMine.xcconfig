@@ -1,1 +1,0 @@
-PODS_CLOUDMINE_IOS_CLOUDMINE_OTHER_LDFLAGS = -ObjC -l"z" -framework "Accounts" -framework "CFNetwork" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreLocation" -framework "Foundation" -framework "MobileCoreServices" -framework "Social" -framework "SystemConfiguration" -framework "UIKit"

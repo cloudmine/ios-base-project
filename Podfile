@@ -7,7 +7,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'CloudMine iOS' do
-  pod 'CloudMine', '1.7.5'
+    pod 'CloudMine', '~> 1.7'
 end
 
 target 'CloudMine iOSTests' do

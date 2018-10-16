@@ -2,7 +2,7 @@
 //  CMUntypedObject.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -13,7 +13,7 @@
 
 @synthesize fields;
 
-- (id)initWithFields:(NSDictionary *)theFields objectId:(NSString *)objId {
+- (instancetype)initWithFields:(NSDictionary *)theFields objectId:(NSString *)objId {
     if (self = [super initWithObjectId:objId]) {
         self.fields = theFields;
     }

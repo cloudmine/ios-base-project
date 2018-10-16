@@ -2,7 +2,7 @@
 //  CMAPICredentials.h
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -18,7 +18,7 @@
 /**
  * @return The shared instance of this object.
  */
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 /**
  * Convenience method to set both the App ID and the API Key simultaneously.

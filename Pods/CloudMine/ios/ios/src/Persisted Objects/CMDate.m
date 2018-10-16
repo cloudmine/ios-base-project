@@ -2,7 +2,7 @@
 //  CMDate.m
 //  cloudmine-ios
 //
-//  Copyright (c) 2012 CloudMine, LLC. All rights reserved.
+//  Copyright (c) 2015 CloudMine, Inc. All rights reserved.
 //  See LICENSE file included with SDK for details.
 //
 
@@ -14,11 +14,11 @@ NSString * const CMDateClassName = @"datetime";
 
 @implementation CMDate
 
-- (id)init {
+- (instancetype)init {
     return [self initWithDate:[NSDate date]];
 }
 
-- (id)initWithDate:(NSDate *)theDate {
+- (instancetype)initWithDate:(NSDate *)theDate {
     NSAssert([theDate isKindOfClass:[NSDate class]], @"Must provide NSDate to CMDate constructor.");
     if (self = [super init]) {
         _date = [theDate copy];
@@ -60,7 +60,7 @@ NSString * const CMDateClassName = @"datetime";
 
 #pragma mark - NSSerializable methods
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     return [self initWithDate:[NSDate dateWithTimeIntervalSince1970:[aDecoder decodeDoubleForKey:@"timestamp"]]];
 }
 
